@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</style><!-- Ugly Hack due to jsFiddle issue -->
+
+<script src="https://cdn.jsdelivr.net/npm/handsontable-pro@6.2.2/dist/handsontable.full.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable-pro@6.2.2/dist/handsontable.full.min.css">
+</head>
+<body>
+    <div>
+        <button id="btn">
+        Add Row
+        </button>
+        <div id="example1" class="hot handsontable htRowHeaders htColumnHeaders"></div>
+      </div>
+</body>
+<script>
+    var example1 = document.getElementById('example1');
+  
+  var hot = new Handsontable(example1, {
+    data: [["A", 1],["A", 2],["B", 1],["B", 2],["C", 1],["C", 2]],
+    colHeaders: true,
+    rowHeaders: true,
+    contextMenu: true,
+    filters: true,
+    dropdownMenu: true
+  });
+  
+document.getElementById("btn").addEventListener ("click", function()
+{
+	hot.alter("insert_row", hot.toPhysicalRow(1), 1)
+});
+</script>
+</html>
